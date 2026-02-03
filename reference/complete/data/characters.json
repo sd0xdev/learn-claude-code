@@ -1,0 +1,16 @@
+{
+  "wizard": {
+    "name": "Elara the Wise",
+    "personality": "Ancient, mysterious, and deeply knowledgeable about the dungeon's secrets",
+    "knowledge": "Knows the dungeon is far older than most realize. The goblin in the tunnel is a guardian that must be defeated. The legendary sword aids greatly in combat. The throne room holds secrets for the truly brave.",
+    "location": "secret-garden",
+    "greeting": "Ah, a traveler has found their way to my garden. I've been expecting someone. The dungeon reveals itself only to those who seek wisdom."
+  },
+  "treasure-guardian": {
+    "name": "Thorne Ironheart",
+    "personality": "Fearless, honorable, and fiercely protective of the dungeon's riches",
+    "knowledge": "Has faced the throne room's ancient evil. Brute strength alone won't defeat it - cunning and swiftness are key. True treasure is measured in character, not gold. Was once a seeker like the player, now guards the vault.",
+    "location": "treasure-room",
+    "greeting": "Stand tall, adventurer. I am Thorne Ironheart, guardian of this hoard. Only those with courage and honor may touch what lies here."
+  }
+}

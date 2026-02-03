@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dungeons & Agents</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- Header -->
+      <header class="game-header">
+        <div class="mascot-wrapper">
+          <div class="header-mascot" id="header-princess"></div>
+        </div>
+        <h1 class="game-title">DUNGEONS & AGENTS</h1>
+        <div class="mascot-wrapper">
+          <div class="header-mascot" id="header-robot"></div>
+        </div>
+      </header>
+
+      <!-- Status Panel (Left Sidebar) -->
+      <aside class="status-panel pixel-box">
+        <!-- Status Section -->
+        <div class="panel-section">
+          <h2 class="panel-title">STATUS</h2>
+          <!-- HP Display -->
+          <div class="hp-display">
+            <span class="hp-label">HP</span>
+            <div class="hp-bar" id="hp-bar"></div>
+            <span class="hp-text" id="hp-text">100/100</span>
+          </div>
+        </div>
+
+        <!-- Location Section -->
+        <div class="panel-section">
+          <h3 class="panel-subtitle">LOCATION</h3>
+          <!-- Location Name -->
+          <!-- Mini Map -->
+          <p class="location-name" id="location-name">Cave Entrance</p>
+          <div class="map-container">
+            <div class="pixel-map" id="pixel-map"></div>
+          </div>
+          <div class="map-legend">
+            <span class="legend-item"
+              ><span class="legend-swatch current"></span> You</span
+            >
+            <span class="legend-item"
+              ><span class="legend-swatch visited"></span> Visited</span
+            >
+            <span class="legend-item"
+              ><span class="legend-swatch unknown"></span> Unknown</span
+            >
+          </div>
+        </div>
+
+        <!-- Inventory Section -->
+        <div class="panel-section">
+          <h3 class="panel-subtitle">INVENTORY</h3>
+          <!-- Inventory List -->
+          <ul class="inventory-list" id="inventory-list">
+            <li class="inventory-empty">Empty</li>
+          </ul>
+        </div>
+
+        <!-- Actions Section -->
+        <div class="panel-section">
+          <h3 class="panel-subtitle">ACTIONS</h3>
+          <!-- Action Buttons Grid -->
+          <div class="button-grid">
+            <button class="pixel-btn" data-cmd="look" title="L" disabled>
+              <span class="btn-icon">👁</span> Look
+            </button>
+            <button class="pixel-btn" data-cmd="inventory" title="I" disabled>
+              <span class="btn-icon">🎒</span> Inv
+            </button>
+            <button class="pixel-btn" data-cmd="help" title="H" disabled>
+              <span class="btn-icon">📜</span> Help
+            </button>
+            <button class="pixel-btn" id="take-btn" disabled>
+              <span class="btn-icon">✋</span> Take
+            </button>
+            <button class="pixel-btn" id="talk-btn" disabled>
+              <span class="btn-icon">💬</span> Talk
+            </button>
+            <button
+              class="pixel-btn pixel-btn-combat"
+              data-cmd="attack"
+              title="A"
+              id="attack-btn"
+              disabled
+            >
+              <span class="btn-icon">🗡️</span> Atk
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Panel (Right Side) -->
+      <main class="main-panel">
+        <!-- Portrait Display (shown during conversations) -->
+        <div
+          class="portrait-container pixel-box"
+          id="portrait-container"
+          hidden
+        >
+          <div class="portrait-frame">
+            <div class="portrait-art" id="portrait-art"></div>
+          </div>
+          <div class="portrait-info">
+            <span class="portrait-name" id="portrait-name"></span>
+            <span class="portrait-trait" id="portrait-trait"></span>
+          </div>
+          <button class="portrait-close" id="portrait-close">X</button>
+        </div>
+
+        <!-- Encounter Box (character/enemy in room) -->
+        <div class="encounter-box pixel-box" id="encounter-box" hidden>
+          <div class="portrait-frame">
+            <div class="encounter-art" id="encounter-art"></div>
+          </div>
+          <div class="encounter-info">
+            <span class="encounter-name" id="encounter-name"></span>
+            <span class="encounter-desc" id="encounter-desc"></span>
+          </div>
+        </div>
+
+        <!-- Items Bar -->
+        <div class="items-bar pixel-box" id="items-bar" hidden>
+          <span class="items-title">ITEMS</span>
+          <div class="items-list" id="items-list"></div>
+        </div>
+
+        <!-- Terminal Output -->
+        <div class="output-container pixel-box">
+          <div class="output" id="output">
+            <p class="system">Type 'help' for available commands.</p>
+            <p class="system">---</p>
+          </div>
+        </div>
+
+        <!-- Command Input -->
+        <div class="input-area pixel-box">
+          <span class="input-prompt">&gt;</span>
+          <!-- Input Field -->
+          <input
+            type="text"
+            id="command"
+            placeholder="Enter command..."
+            autofocus
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+      </main>
+    </div>
+
+    <!-- Scanline overlay -->
+    <div class="scanlines"></div>
+
+    <script src="ui/portraits.js"></script>
+    <script src="ui/ui.js"></script>
+    <script src="game.js"></script>
+    <script>
+      // Live reload
+      ;(function () {
+        const es = new EventSource("/live-reload")
+        es.onmessage = (e) => {
+          if (e.data === "reload") location.reload()
+        }
+      })()
+    </script>
+  </body>
+</html>

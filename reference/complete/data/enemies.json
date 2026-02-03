@@ -1,0 +1,8 @@
+{
+  "goblin": {
+    "name": "Goblin",
+    "hp": 10,
+    "damage": 3,
+    "room": "narrow-tunnel"
+  }
+}

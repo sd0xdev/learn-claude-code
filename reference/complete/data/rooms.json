@@ -1,0 +1,48 @@
+{
+  "cave-entrance": {
+    "name": "Cave Entrance",
+    "description": "You stand at the entrance of a dark cave. Faint light filters in from outside.",
+    "exits": {
+      "up": "narrow-tunnel"
+    }
+  },
+  "narrow-tunnel": {
+    "name": "Narrow Tunnel",
+    "description": "A cramped passage with rough stone walls. The air grows cooler as you venture deeper.",
+    "exits": {
+      "down": "cave-entrance",
+      "up": "secret-garden",
+      "right": "treasure-room",
+      "left": "underground-lake"
+    }
+  },
+  "treasure-room": {
+    "name": "Treasure Room",
+    "description": "A glittering chamber filled with gold coins and precious artifacts. Wealth beyond measure surrounds you.",
+    "exits": {
+      "left": "narrow-tunnel"
+    }
+  },
+  "underground-lake": {
+    "name": "Underground Lake",
+    "description": "A vast cavern opening before you, with a dark underground lake stretching into the shadows. Strange echoes bounce off the water.",
+    "exits": {
+      "right": "narrow-tunnel",
+      "left": "throne-room"
+    }
+  },
+  "secret-garden": {
+    "name": "Secret Garden",
+    "description": "An impossible garden blooming underground, with flowers that glow softly in the darkness. You've found something magical.",
+    "exits": {
+      "down": "narrow-tunnel"
+    }
+  },
+  "throne-room": {
+    "name": "Throne Room",
+    "description": "A vast chamber with a throne of obsidian and gold. The room feels heavy with ancient power. Your only choice is to retreat.",
+    "exits": {
+      "right": "underground-lake"
+    }
+  }
+}

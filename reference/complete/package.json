@@ -1,0 +1,13 @@
+{
+  "name": "dungeons-and-agents",
+  "version": "1.0.0",
+  "description": "A browser-based text adventure game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.72.1",
+    "dotenv": "^17.2.3"
+  }
+}

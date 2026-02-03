@@ -1,0 +1,50 @@
+{
+  "title": "Learn Claude Code",
+  "parts": [
+    {
+      "name": "Introduction",
+      "lessons": [{ "id": "00", "title": "Welcome", "file": "00-intro.md" }]
+    },
+    {
+      "name": "Getting Started",
+      "lessons": [
+        {
+          "id": "01",
+          "title": "Your First Session",
+          "file": "01-first-session.md"
+        },
+        {
+          "id": "02",
+          "title": "CLI Navigation",
+          "file": "02-cli-navigation.md"
+        },
+        { "id": "03", "title": "Managing Context", "file": "03-context.md" },
+        { "id": "04", "title": "Modes", "file": "04-modes.md" }
+      ]
+    },
+    {
+      "name": "Project Context",
+      "lessons": [
+        { "id": "05", "title": "CLAUDE.md", "file": "05-claude-md.md" },
+        { "id": "06", "title": "Writing Rules", "file": "06-writing-rules.md" },
+        { "id": "07", "title": "Prompting", "file": "07-prompting.md" },
+        {
+          "id": "08",
+          "title": "Creating Skills",
+          "file": "08-creating-skills.md"
+        }
+      ]
+    },
+    {
+      "name": "Agents",
+      "lessons": [
+        { "id": "09", "title": "Subagents", "file": "09-claude-agents.md" },
+        {
+          "id": "10",
+          "title": "Application Agents",
+          "file": "10-application-agents.md"
+        }
+      ]
+    }
+  ]
+}

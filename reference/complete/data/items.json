@@ -1,0 +1,35 @@
+{
+  "rusty-sword": {
+    "name": "Rusty Sword",
+    "description": "An old sword, covered in rust but still sharp enough to be useful.",
+    "room": "cave-entrance",
+    "damage": 10
+  },
+  "ancient-torch": {
+    "name": "Ancient Torch",
+    "description": "A torch that flickers with an eternal flame.",
+    "room": "narrow-tunnel"
+  },
+  "health-potion": {
+    "name": "Health Potion",
+    "description": "A red potion that smells of herbs. It looks like it could restore health.",
+    "room": "treasure-room",
+    "heals": 30
+  },
+  "golden-key": {
+    "name": "Golden Key",
+    "description": "A ornate golden key. It must unlock something important.",
+    "room": "underground-lake"
+  },
+  "magic-gem": {
+    "name": "Magic Gem",
+    "description": "A glowing gemstone that pulses with magical energy.",
+    "room": "secret-garden"
+  },
+  "legendary-sword": {
+    "name": "Legendary Sword",
+    "description": "A magnificent blade forged by ancient masters. Its edge gleams with otherworldly power.",
+    "room": "secret-garden",
+    "damage": 10
+  }
+}

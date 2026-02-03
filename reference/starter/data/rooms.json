@@ -1,0 +1,7 @@
+{
+  "cave-entrance": {
+    "name": "Cave Entrance",
+    "description": "You stand at the entrance of a dark cave. Faint light filters in from outside.",
+    "exits": {}
+  }
+}
