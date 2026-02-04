@@ -1,0 +1,31 @@
+═══════════════════════════════════════════════════════════════════
+第 04 課：模式
+═══════════════════════════════════════════════════════════════════
+
+你請 Claude 為地下城遊戲新增一個戰鬥系統。它立刻開始撰寫程式碼——但等等，戰鬥應該是回合制還是即時制？傷害該如何計算？生命值要存在哪裡？
+
+對於複雜的任務，你希望 Claude 先_思考再寫程式碼_。這就是規劃模式的用途。
+
+Claude Code 有三種模式，適用於不同的情境：
+
+- **一般模式（預設）** — Claude 提出變更建議，你逐一核准。最適合學習、檢視不熟悉的程式碼，或進行敏感的修改。
+- **自動接受模式** — Claude 不需詢問即可進行檔案編輯。Shell 指令仍需你核准。最適合值得信賴的重構和批次操作。
+- **規劃模式** — Claude 在撰寫程式碼前先進行研究和規劃。它會探索程式碼庫、提出方案，待你核准後再開始實作。最適合複雜功能和架構層級的變更。
+
+## 試試看
+
+1. 按 `Shift+Tab` 直到你在輸入欄位下方看到 "plan" 模式指示器。
+
+2. 請 Claude 規劃物品欄系統：
+
+   > Plan an inventory system for the dungeon game. Players can pick up items with 'take [item]', view inventory with 'inventory'. Items are stored in data/items.json.
+   >
+   > - Create pixel art for the items in the inventory.
+   > - Make sure the Inventory List (in Inventory Section) and Take Button (in Actions Section) are working correctly. The Take Button should be enabled when items are present in the current room.
+   > - Add a box at the top of the dialogue to display the items available in the current room.
+
+3. 檢閱 Claude 的規劃並核准。
+
+> 提示：選擇選項 2 以保留課程的上下文。
+
+4. 測試：`look` 應該會顯示物品，`take sword` 可以撿起物品，`inventory` 會列出你攜帶的物品。

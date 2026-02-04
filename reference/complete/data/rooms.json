@@ -1,14 +1,18 @@
 {
   "cave-entrance": {
     "name": "Cave Entrance",
+    "name_zh": "洞穴入口",
     "description": "You stand at the entrance of a dark cave. Faint light filters in from outside.",
+    "description_zh": "你站在一個黑暗洞穴的入口。微弱的光線從外面透進來。",
     "exits": {
       "up": "narrow-tunnel"
     }
   },
   "narrow-tunnel": {
     "name": "Narrow Tunnel",
+    "name_zh": "狹窄通道",
     "description": "A cramped passage with rough stone walls. The air grows cooler as you venture deeper.",
+    "description_zh": "一條狹窄的通道，牆壁由粗糙的石頭構成。隨著你深入探險，空氣變得更加涼爽。",
     "exits": {
       "down": "cave-entrance",
       "up": "secret-garden",
@@ -18,14 +22,18 @@
   },
   "treasure-room": {
     "name": "Treasure Room",
+    "name_zh": "寶藏室",
     "description": "A glittering chamber filled with gold coins and precious artifacts. Wealth beyond measure surrounds you.",
+    "description_zh": "一間閃閃發光的房間，充滿了金幣和珍貴的文物。難以計量的財富環繞著你。",
     "exits": {
       "left": "narrow-tunnel"
     }
   },
   "underground-lake": {
     "name": "Underground Lake",
+    "name_zh": "地下湖",
     "description": "A vast cavern opening before you, with a dark underground lake stretching into the shadows. Strange echoes bounce off the water.",
+    "description_zh": "一個巨大的洞窟在你面前展開，一片黑暗的地下湖延伸到陰影之中。奇異的回音從水面上彈跳。",
     "exits": {
       "right": "narrow-tunnel",
       "left": "throne-room"
@@ -33,14 +41,18 @@
   },
   "secret-garden": {
     "name": "Secret Garden",
+    "name_zh": "秘密花園",
     "description": "An impossible garden blooming underground, with flowers that glow softly in the darkness. You've found something magical.",
+    "description_zh": "一座不可思議的花園在地下綻放，花朵在黑暗中散發柔和的光芒。你發現了一些神奇的事物。",
     "exits": {
       "down": "narrow-tunnel"
     }
   },
   "throne-room": {
     "name": "Throne Room",
+    "name_zh": "王座室",
     "description": "A vast chamber with a throne of obsidian and gold. The room feels heavy with ancient power. Your only choice is to retreat.",
+    "description_zh": "一個巨大的房間，擺放著黑曜石與黃金打造的王座。房間瀰漫著古老力量的沉重感。你唯一的選擇是撤退。",
     "exits": {
       "right": "underground-lake"
     }

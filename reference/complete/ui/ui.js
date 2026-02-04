@@ -73,16 +73,20 @@ function updateHpBar() {
 function updateLocation() {
   const room = rooms[currentRoom]
   if (room) {
-    locationName.textContent = room.name
+    locationName.textContent = t(room, "name")
     visitedRooms.add(currentRoom)
   } else {
-    locationName.textContent = "Unknown"
+    locationName.textContent = t(S.unknownLocation)
   }
 }
 
-// Get icon for item
-function getItemIcon(itemName) {
-  const name = itemName.toLowerCase()
+// Get icon for item (uses icon field if available, falls back to name matching)
+function getItemIcon(item) {
+  if (item.icon) {
+    const iconMap = { sword: "⚔", key: "🗝", torch: "🔥", potion: "🧪", shield: "🛡", gem: "💎" }
+    return iconMap[item.icon] || "◆"
+  }
+  const name = (item.name || "").toLowerCase()
   if (name.includes("sword")) return "⚔"
   if (name.includes("key")) return "🗝"
   if (name.includes("torch")) return "🔥"
@@ -99,7 +103,7 @@ function updateInventory() {
   if (inventory.length === 0) {
     const li = document.createElement("li")
     li.className = "inventory-empty"
-    li.textContent = "Empty"
+    li.textContent = t(S.emptyInventory)
     inventoryList.appendChild(li)
   } else {
     inventory.forEach((id) => {
@@ -107,9 +111,9 @@ function updateInventory() {
       const li = document.createElement("li")
       const icon = document.createElement("span")
       icon.className = "item-icon"
-      icon.textContent = getItemIcon(item.name)
+      icon.textContent = getItemIcon(item)
       li.appendChild(icon)
-      li.appendChild(document.createTextNode(item.name))
+      li.appendChild(document.createTextNode(t(item, "name")))
       inventoryList.appendChild(li)
     })
   }
@@ -197,8 +201,8 @@ function showPortrait(character) {
     portraitArt.style.boxShadow = 'none'
     portraitArt.textContent = '?'
   }
-  portraitName.textContent = character.name
-  portraitTrait.textContent = character.personality
+  portraitName.textContent = t(character, "name")
+  portraitTrait.textContent = t(character, "personality")
   portraitContainer.hidden = false
 }
 
@@ -208,12 +212,17 @@ function hidePortrait() {
 }
 
 // Map item IDs to portrait IDs
-function getItemPortraitId(itemId) {
-  if (itemId.includes("sword")) return "sword"
-  if (itemId.includes("key")) return "key"
-  if (itemId.includes("potion")) return "potion"
-  if (itemId.includes("torch")) return "torch"
-  if (itemId.includes("gem")) return "gem"
+function getItemPortraitId(itemIdOrObj) {
+  // Use icon field if an item object is passed
+  if (typeof itemIdOrObj === "object" && itemIdOrObj.icon) {
+    return itemIdOrObj.icon
+  }
+  const id = typeof itemIdOrObj === "string" ? itemIdOrObj : ""
+  if (id.includes("sword")) return "sword"
+  if (id.includes("key")) return "key"
+  if (id.includes("potion")) return "potion"
+  if (id.includes("torch")) return "torch"
+  if (id.includes("gem")) return "gem"
   return "gem" // fallback
 }
 
@@ -266,10 +275,10 @@ function showEncounterBox() {
   // Prioritize character over enemy
   if (charEntry) {
     const [id, char] = charEntry
-    showEncounter(getCharacterPortraitId(id), char.name, char.personality, "character")
+    showEncounter(getCharacterPortraitId(id), t(char, "name"), t(char, "personality"), "character")
   } else if (enemyEntry) {
     const [id, enemy] = enemyEntry
-    showEncounter(id, enemy.name, `${enemy.hp} HP • ${enemy.damage} damage`, "enemy")
+    showEncounter(id, t(enemy, "name"), T.enemyEncounterStats(enemy.hp, enemy.damage), "enemy")
   } else {
     encounterBox.hidden = true
   }
@@ -302,7 +311,7 @@ function showItemsBar() {
 
   roomItems.forEach(([id, item]) => {
     itemsList.appendChild(
-      createEntityIcon(getItemPortraitId(id), item.name, "item")
+      createEntityIcon(getItemPortraitId(item), t(item, "name"), "item")
     )
   })
 

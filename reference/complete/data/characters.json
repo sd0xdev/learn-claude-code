@@ -1,16 +1,24 @@
 {
   "wizard": {
     "name": "Elara the Wise",
+    "name_zh": "智者艾拉拉",
     "personality": "Ancient, mysterious, and deeply knowledgeable about the dungeon's secrets",
+    "personality_zh": "古老、神秘，對地牢的秘密有著深厚的認識",
     "knowledge": "Knows the dungeon is far older than most realize. The goblin in the tunnel is a guardian that must be defeated. The legendary sword aids greatly in combat. The throne room holds secrets for the truly brave.",
+    "knowledge_zh": "知道這座地牢比大多數人所認知的還要古老。通道中的哥布林是必須擊敗的守衛。傳奇之劍在戰鬥中大有助益。王座室為真正勇敢的人隱藏著秘密。",
     "location": "secret-garden",
-    "greeting": "Ah, a traveler has found their way to my garden. I've been expecting someone. The dungeon reveals itself only to those who seek wisdom."
+    "greeting": "Ah, a traveler has found their way to my garden. I've been expecting someone. The dungeon reveals itself only to those who seek wisdom.",
+    "greeting_zh": "啊，一位旅人找到了通往我花園的路。我一直在等待著某個人。地牢只會向尋求智慧的人展現自己。"
   },
   "treasure-guardian": {
     "name": "Thorne Ironheart",
+    "name_zh": "鐵心索恩",
     "personality": "Fearless, honorable, and fiercely protective of the dungeon's riches",
+    "personality_zh": "無畏、正直，對地牢的財富有著強烈的守護意志",
     "knowledge": "Has faced the throne room's ancient evil. Brute strength alone won't defeat it - cunning and swiftness are key. True treasure is measured in character, not gold. Was once a seeker like the player, now guards the vault.",
+    "knowledge_zh": "曾面對王座室的遠古邪惡。光靠蠻力無法擊敗它——機智和敏捷才是關鍵。真正的寶藏是以品格來衡量，而非黃金。曾經和玩家一樣是個探索者，現在守護著寶庫。",
     "location": "treasure-room",
-    "greeting": "Stand tall, adventurer. I am Thorne Ironheart, guardian of this hoard. Only those with courage and honor may touch what lies here."
+    "greeting": "Stand tall, adventurer. I am Thorne Ironheart, guardian of this hoard. Only those with courage and honor may touch what lies here.",
+    "greeting_zh": "挺起胸膛，冒險者。我是鐵心索恩，這座寶庫的守護者。唯有擁有勇氣和榮譽的人，才能觸碰這裡的一切。"
   }
 }

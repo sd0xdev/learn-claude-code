@@ -1,6 +1,7 @@
 {
   "goblin": {
     "name": "Goblin",
+    "name_zh": "哥布林",
     "hp": 10,
     "damage": 3,
     "room": "narrow-tunnel"

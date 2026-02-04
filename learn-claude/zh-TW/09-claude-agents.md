@@ -1,0 +1,62 @@
+═══════════════════════════════════════════════════════════════════
+課程 09：子代理
+═══════════════════════════════════════════════════════════════════
+
+**子代理**是在自己的上下文視窗中運行的專門助手。Claude 會為複雜任務產生子代理——它們獨立工作，然後回報結果。
+
+例如，你可以建立用於除錯、設計、實作功能等的代理。
+
+為什麼要使用子代理？
+
+- **保留上下文** — 將探索工作隔離在主要對話之外
+- **強制約束** — 限制子代理可以使用的工具
+- **控制成本** — 將任務導向更快、更便宜的模型，如 Haiku
+
+## 內建子代理
+
+| Agent               | 用途                       | 模型         |
+| ------------------- | -------------------------- | ------------ |
+| **Explore**         | 搜尋和理解程式碼           | Haiku（快速）|
+| **Plan**            | 規劃前的研究               | 繼承         |
+| **General-purpose** | 複雜的多步驟任務           | 繼承         |
+
+## 建立自訂子代理
+
+執行 `/agents` 來開啟互動式子代理管理器。
+
+**子代理欄位：**
+
+- `name` — 識別名稱（小寫，連字號）
+- `description` — 告訴 Claude 何時使用這個子代理
+- `tools` — 子代理可以使用的工具（選填）
+- `model` — `sonnet`、`opus`、`haiku` 或 `inherit`（選填）
+
+## 背景代理
+
+在你繼續工作的同時，讓子代理在背景執行：
+
+- **`Ctrl+B`** — 將正在執行的任務移到背景
+- **"run this in the background"** — 直接請 Claude 執行
+- **`/tasks`** — 檢查背景工作進度
+
+## 動手試試
+
+1. 執行 `/agents`
+
+2. 選擇 **Create new agent** → **Project-level**
+
+3. 選擇 **Generate with Claude** 並描述代理：
+
+   ```
+   A character creator that makes NPCs for a dungeon game. It should read /skills/add-character/skill.md to understand the character creation process, read the rooms to understand the world, design characters with personality traits, and save them to data/characters.json.
+   ```
+
+4. 保留預設的工具和模型，選擇一個顏色，然後儲存。
+
+5. 在背景中測試：
+
+   > Create two new characters: a Dwarf NPC for the treasure-room and a Elf for the underground-lake. Run this in the background.
+
+6. 在它執行時，檢查 `/tasks` 來查看背景工作。
+
+7. 測試：`talk dwarf` 應該會顯示矮人的招呼語。

@@ -1,7 +1,7 @@
 ---
 name: course
 description: Interactive Claude Code learning course with progress tracking
-argument-hint: "[lesson-number | next | progress | reset | exit | update | complete]"
+argument-hint: "[lesson-number | next | progress | reset | exit | update | complete | lang en|zh-TW]"
 ---
 
 # Dungeons & Agents - Interactive Course
@@ -95,6 +95,47 @@ Be specific in instructions: "Update the Take Button in the Actions Section" not
 - `exit` → Save position and exit the course
 - `update` → Check for and apply updates from GitHub
 - `complete` → Mark course as complete and show graduation message
+- `lang [en|zh-TW]` → Set course language
+
+---
+
+## Language / Locale
+
+The course supports English (`en`) and Traditional Chinese (`zh-TW`).
+
+### Detecting locale
+
+Read the `locale` field from `dungeon/course-progress.json`. If the field is missing, default to `en`.
+
+### Setting locale
+
+When $ARGUMENTS starts with `lang`:
+
+1. Parse the language code (e.g., `lang zh-TW` or `lang en`)
+2. Update `dungeon/course-progress.json` to include `"locale": "zh-TW"` (or `"en"`)
+3. Display confirmation:
+
+```
+╭──────────────────────────────────────────────╮
+│  Language set to: 繁體中文 (zh-TW)           │
+│                                              │
+│  Run /course to continue learning            │
+╰──────────────────────────────────────────────╯
+```
+
+### Using locale
+
+When locale is `zh-TW`:
+
+- Read lesson files from `learn-claude/zh-TW/XX-*.md` instead of `learn-claude/XX-*.md` (use the `file_zh` field from lessons.json)
+- Use `title_zh` and `name_zh` from lessons.json for dashboard display
+- The tutor should converse in Traditional Chinese
+- Keep code blocks, CLI commands, file paths, and slash commands in English
+
+When locale is `en` (default):
+
+- Use `file` and `title` fields from lessons.json as before
+- The tutor converses in English
 
 ---
 
@@ -107,7 +148,8 @@ When $ARGUMENTS is empty, show the course dashboard:
    {
      "completed": [],
      "current": null,
-     "graduated": false
+     "graduated": false,
+     "locale": "en"
    }
    ```
 2. Read lesson list from `skills/course/lessons.json`

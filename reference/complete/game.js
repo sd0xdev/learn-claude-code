@@ -74,33 +74,31 @@ function processCommand(input) {
 
   // Basic commands
   if (command === "help") {
-    print(
-      "Available commands: help, look, go, take, inventory, attack, talk, leave",
-    )
+    print(t(S.availableCommands))
   } else if (command === "look") {
     const room = rooms[currentRoom]
     if (room) {
-      print(room.description)
+      print(t(room, "description"))
 
       // Show items in room
       const roomItems = Object.entries(items)
         .filter(([id, item]) => item.room === currentRoom)
-        .map(([id, item]) => item.name)
+        .map(([id, item]) => t(item, "name"))
       if (roomItems.length > 0) {
-        print(`Items: ${roomItems.join(", ")}`)
+        print(T.itemList(roomItems.join(", ")))
       }
 
       // Show enemies in room
       const roomEnemies = Object.entries(enemies)
         .filter(([id, enemy]) => enemy.room === currentRoom && enemy.hp > 0)
-        .map(([id, enemy]) => `${enemy.name} (${enemy.hp} hp)`)
+        .map(([id, enemy]) => T.enemyStatus(t(enemy, "name"), enemy.hp))
       if (roomEnemies.length > 0) {
-        print(`Enemies: ${roomEnemies.join(", ")}`)
+        print(T.enemyList(roomEnemies.join(", ")))
       }
 
       const exitList = Object.keys(room.exits).join(", ")
       if (exitList) {
-        print(`Exits: ${exitList}`)
+        print(T.exitList(T.localizeExits(exitList)))
       }
     }
   } else if (command.startsWith("go ")) {
@@ -122,7 +120,7 @@ function processCommand(input) {
     const message = input.slice(4) // Use 'input' to preserve case
     sayTo(message)
   } else {
-    print("I don't understand that.", "error")
+    print(t(S.dontUnderstand), "error")
   }
 }
 
@@ -136,40 +134,40 @@ function goDirection(direction) {
     updateUI()
     const newRoom = rooms[currentRoom]
     if (newRoom) {
-      print(`You go ${direction}.`)
-      print(newRoom.description)
+      print(T.youGo(direction))
+      print(t(newRoom, "description"))
 
       // Show characters in room
       const roomCharacters = Object.entries(characters)
         .filter(([id, char]) => char.location === currentRoom)
-        .map(([id, char]) => char.name)
+        .map(([id, char]) => t(char, "name"))
       if (roomCharacters.length > 0) {
-        print(`Talk to: ${roomCharacters.join(", ")}`)
+        print(T.talkToList(roomCharacters.join(", ")))
       }
 
       // Show items in room
       const roomItems = Object.entries(items)
         .filter(([id, item]) => item.room === currentRoom)
-        .map(([id, item]) => item.name)
+        .map(([id, item]) => t(item, "name"))
       if (roomItems.length > 0) {
-        print(`Items: ${roomItems.join(", ")}`)
+        print(T.itemList(roomItems.join(", ")))
       }
 
       // Show enemies in room
       const roomEnemies = Object.entries(enemies)
         .filter(([id, enemy]) => enemy.room === currentRoom && enemy.hp > 0)
-        .map(([id, enemy]) => `${enemy.name} (${enemy.hp} hp)`)
+        .map(([id, enemy]) => T.enemyStatus(t(enemy, "name"), enemy.hp))
       if (roomEnemies.length > 0) {
-        print(`Enemies: ${roomEnemies.join(", ")}`)
+        print(T.enemyList(roomEnemies.join(", ")))
       }
 
       const exitList = Object.keys(newRoom.exits).join(", ")
       if (exitList) {
-        print(`Exits: ${exitList}`)
+        print(T.exitList(T.localizeExits(exitList)))
       }
     }
   } else {
-    print("You can't go that way.", "error")
+    print(t(S.cantGoThatWay), "error")
   }
 }
 
@@ -184,11 +182,12 @@ function take(itemName) {
       ([id, item]) => item.room === currentRoom,
     )
   } else {
-    // Target specified - match by name (case-insensitive, partial match)
+    // Target specified - match by name or zh name (case-insensitive, partial match)
     entry = Object.entries(items).find(
       ([id, item]) =>
         item.room === currentRoom &&
-        item.name.toLowerCase().includes(itemName.toLowerCase()),
+        (item.name.toLowerCase().includes(itemName.toLowerCase()) ||
+         (item.name_zh && item.name_zh.includes(itemName))),
     )
   }
 
@@ -196,21 +195,21 @@ function take(itemName) {
     const [id, item] = entry
     item.room = null // Remove from room
     inventory.push(id) // Add to inventory
-    print(`You pick up the ${item.name}.`, "success")
+    print(T.youPickUp(t(item, "name")), "success")
     updateInventory()
     updateTakeButton()
     showItemsBar()
   } else {
-    print("You don't see that here.", "error")
+    print(t(S.dontSeeHere), "error")
   }
 }
 
 function showInventory() {
   if (inventory.length === 0) {
-    print("You are carrying nothing.")
+    print(t(S.carryingNothing))
   } else {
-    const carried = inventory.map((id) => items[id].name).join(", ")
-    print(`You are carrying: ${carried}`)
+    const carried = inventory.map((id) => t(items[id], "name")).join(", ")
+    print(T.carrying(carried))
   }
 }
 
@@ -223,7 +222,7 @@ function attack() {
   )
 
   if (!entry) {
-    print("There's nothing to attack here.", "error")
+    print(t(S.nothingToAttack), "error")
     return
   }
 
@@ -235,32 +234,32 @@ function attack() {
 
   // Player attacks
   enemy.hp -= playerDamage
-  print(`You attack the ${enemy.name} for ${playerDamage} damage!`, "combat")
+  print(T.youAttackFor(t(enemy, "name"), playerDamage), "combat")
 
   if (enemy.hp <= 0) {
-    print(`The ${enemy.name} is defeated!`, "success")
+    print(T.enemyDefeated(t(enemy, "name")), "success")
     enemy.room = null // Remove enemy from room
     updateAttackButton()
     showEncounterBox()
     return
   }
 
-  print(`The ${enemy.name} has ${enemy.hp} hp left.`, "combat")
+  print(T.enemyHpLeft(t(enemy, "name"), enemy.hp), "combat")
 
   // Enemy attacks back
   playerHp -= enemy.damage
-  print(`The ${enemy.name} attacks you for ${enemy.damage} damage!`, "combat")
+  print(T.enemyAttacksYou(t(enemy, "name"), enemy.damage), "combat")
 
   updateHpBar()
 
   if (playerHp <= 0) {
-    print("You have been slain. Game over.", "error")
-    print("Refresh to restart.")
+    print(t(S.youHaveBeenSlain), "error")
+    print(t(S.refreshToRestart))
     commandInput.disabled = true
     return
   }
 
-  print(`You have ${playerHp} hp left.`, "combat")
+  print(T.playerHpLeft(playerHp), "combat")
 }
 
 // ============ NPC CONVERSATION SYSTEM ============
@@ -277,11 +276,11 @@ function talk(name) {
       ([id, e]) => id === "goblin" && e.room === currentRoom && e.hp > 0
     )
     if (goblin) {
-      print(`Goblin: "GRAK SNORK BLURGLE!! MEEP GRONK SKREEEE!!"`, "npc")
+      print(T.npcSays(t(goblin[1], "name"), t(S.goblinSpeak)), "npc")
       return
     }
 
-    print("There's no one here to talk to.", "error")
+    print(t(S.noOneHere), "error")
     return
   }
 
@@ -290,16 +289,17 @@ function talk(name) {
     // No target specified - talk to first NPC in room
     entry = npcsInRoom[0]
   } else {
-    // Match by name or ID (case-insensitive, partial match)
+    // Match by name, zh name, or ID (case-insensitive, partial match)
     entry = npcsInRoom.find(
       ([id, c]) =>
         c.name.toLowerCase().includes(name.toLowerCase()) ||
+        (c.name_zh && c.name_zh.includes(name)) ||
         id.toLowerCase().includes(name.toLowerCase()),
     )
   }
 
   if (!entry) {
-    print("I don't see anyone by that name here.", "error")
+    print(t(S.dontSeeAnyone), "error")
     return
   }
 
@@ -311,15 +311,15 @@ function talk(name) {
   if (encounterBox.hidden) {
     showPortrait(character)
   }
-  print(`${character.name}: "${character.greeting}"`)
+  print(T.npcGreeting(t(character, "name"), t(character, "greeting")))
   print("")
-  print("Type your message, or 'leave' to end conversation.")
+  print(t(S.typeMessageOrLeave))
 }
 
 function leaveConversation() {
   if (!talkingTo) return
 
-  print(`You stop talking to ${talkingTo.name}.`)
+  print(T.youStopTalkingTo(t(talkingTo, "name")))
   talkingTo = null
   talkingToId = null
   hidePortrait()
@@ -327,11 +327,11 @@ function leaveConversation() {
 
 async function sayTo(message) {
   if (!talkingTo) {
-    print("You're not talking to anyone.", "error")
+    print(t(S.notTalkingToAnyone), "error")
     return
   }
 
-  print(`You: "${message}"`)
+  print(T.youSay(message))
 
   try {
     const res = await fetch("/api/talk", {
@@ -344,11 +344,11 @@ async function sayTo(message) {
     })
 
     const data = await res.json()
-    print(`${talkingTo.name}: "${data.response}"`, "npc")
+    print(T.npcSays(t(talkingTo, "name"), data.response), "npc")
   } catch (err) {
     console.error("Say error:", err)
     // Fallback to greeting if API fails
-    print(`${talkingTo.name}: "${talkingTo.greeting}"`, "npc")
+    print(T.npcSays(t(talkingTo, "name"), t(talkingTo, "greeting")), "npc")
   }
 }
 
@@ -446,18 +446,18 @@ async function init() {
   updateUI()
   enableCommandButtons()
 
-  print("Welcome to Dungeons & Agents!")
+  print(t(S.welcome))
   print("")
   const room = rooms[currentRoom]
   if (room) {
-    print(room.description)
+    print(t(room, "description"))
 
     // Show items in the starting room
     const roomItems = Object.entries(items)
       .filter(([id, item]) => item.room === currentRoom)
-      .map(([id, item]) => item.name)
+      .map(([id, item]) => t(item, "name"))
     if (roomItems.length > 0) {
-      print(`Items: ${roomItems.join(", ")}`)
+      print(T.itemList(roomItems.join(", ")))
     }
   }
 }

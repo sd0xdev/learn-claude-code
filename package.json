@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "node reference/complete/server.js",
+    "dev": "node dungeon/server.js",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^3.0.0"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.72.1",
+    "dotenv": "^17.2.3"
+  }
+}

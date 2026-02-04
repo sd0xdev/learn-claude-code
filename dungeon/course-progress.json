@@ -1,5 +1,6 @@
 {
   "completed": ["00", "01"],
   "current": "02",
-  "graduated": false
+  "graduated": false,
+  "locale": "zh-TW"
 }

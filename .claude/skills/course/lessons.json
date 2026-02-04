@@ -1,48 +1,105 @@
 {
   "title": "Learn Claude Code",
+  "title_zh": "學習 Claude Code",
   "parts": [
     {
       "name": "Introduction",
-      "lessons": [{ "id": "00", "title": "Welcome", "file": "00-intro.md" }]
+      "name_zh": "簡介",
+      "lessons": [
+        {
+          "id": "00",
+          "title": "Welcome",
+          "title_zh": "歡迎",
+          "file": "00-intro.md",
+          "file_zh": "zh-TW/00-intro.md"
+        }
+      ]
     },
     {
       "name": "Getting Started",
+      "name_zh": "入門",
       "lessons": [
         {
           "id": "01",
           "title": "Your First Session",
-          "file": "01-first-session.md"
+          "title_zh": "你的第一次 Session",
+          "file": "01-first-session.md",
+          "file_zh": "zh-TW/01-first-session.md"
         },
         {
           "id": "02",
           "title": "CLI Navigation",
-          "file": "02-cli-navigation.md"
+          "title_zh": "CLI 導航",
+          "file": "02-cli-navigation.md",
+          "file_zh": "zh-TW/02-cli-navigation.md"
         },
-        { "id": "03", "title": "Managing Context", "file": "03-context.md" },
-        { "id": "04", "title": "Modes", "file": "04-modes.md" }
+        {
+          "id": "03",
+          "title": "Managing Context",
+          "title_zh": "管理上下文",
+          "file": "03-context.md",
+          "file_zh": "zh-TW/03-context.md"
+        },
+        {
+          "id": "04",
+          "title": "Modes",
+          "title_zh": "模式",
+          "file": "04-modes.md",
+          "file_zh": "zh-TW/04-modes.md"
+        }
       ]
     },
     {
       "name": "Project Context",
+      "name_zh": "專案上下文",
       "lessons": [
-        { "id": "05", "title": "CLAUDE.md", "file": "05-claude-md.md" },
-        { "id": "06", "title": "Writing Rules", "file": "06-writing-rules.md" },
-        { "id": "07", "title": "Prompting", "file": "07-prompting.md" },
+        {
+          "id": "05",
+          "title": "CLAUDE.md",
+          "title_zh": "CLAUDE.md",
+          "file": "05-claude-md.md",
+          "file_zh": "zh-TW/05-claude-md.md"
+        },
+        {
+          "id": "06",
+          "title": "Writing Rules",
+          "title_zh": "撰寫規則",
+          "file": "06-writing-rules.md",
+          "file_zh": "zh-TW/06-writing-rules.md"
+        },
+        {
+          "id": "07",
+          "title": "Prompting",
+          "title_zh": "提示技巧",
+          "file": "07-prompting.md",
+          "file_zh": "zh-TW/07-prompting.md"
+        },
         {
           "id": "08",
           "title": "Creating Skills",
-          "file": "08-creating-skills.md"
+          "title_zh": "建立技能",
+          "file": "08-creating-skills.md",
+          "file_zh": "zh-TW/08-creating-skills.md"
         }
       ]
     },
     {
       "name": "Agents",
+      "name_zh": "代理",
       "lessons": [
-        { "id": "09", "title": "Subagents", "file": "09-claude-agents.md" },
+        {
+          "id": "09",
+          "title": "Subagents",
+          "title_zh": "子代理",
+          "file": "09-claude-agents.md",
+          "file_zh": "zh-TW/09-claude-agents.md"
+        },
         {
           "id": "10",
           "title": "Application Agents",
-          "file": "10-application-agents.md"
+          "title_zh": "應用程式代理",
+          "file": "10-application-agents.md",
+          "file_zh": "zh-TW/10-application-agents.md"
         }
       ]
     }

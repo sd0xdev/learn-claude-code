@@ -92,7 +92,8 @@ Respond in character with dialogue only. Keep responses concise (1-2 sentences).
     return
   }
 
-  let filePath = req.url === "/" ? "/index.html" : req.url
+  const urlPath = req.url.split("?")[0]
+  let filePath = urlPath === "/" ? "/index.html" : urlPath
   filePath = path.join(__dirname, filePath)
 
   const ext = path.extname(filePath)
@@ -120,5 +121,6 @@ fs.watch(__dirname, { recursive: true }, (event, filename) => {
 
 server.listen(PORT, () => {
   console.log(`\n  Dungeons & Agents running at http://localhost:${PORT}`)
+  console.log(`  繁體中文版 http://localhost:${PORT}?lang=zh-TW`)
   console.log(`  Live reload enabled\n`)
 })

@@ -1,3 +1,5 @@
+English | [繁體中文](README.zh-TW.md)
+
 # Learn Claude Code
 
 An interactive course for learning Claude Code in Claude Code.
@@ -49,10 +51,17 @@ Each lesson teaches a Claude Code concept, then has you apply it to the game. By
 Start the game server:
 
 ```bash
-node dungeon/server.js
+pnpm start
 ```
 
-Then open http://localhost:3000 in your browser.
+- English: http://localhost:3000
+- Traditional Chinese: http://localhost:3000?lang=zh-TW
+
+When building step-by-step during the course, use the student workspace:
+
+```bash
+pnpm run dev
+```
 
 ---
 
@@ -114,6 +123,8 @@ learn-claude-code/
 | `/course exit`     | Pause and save position      |
 | `/course reset`    | Start over                   |
 | `/course update`   | Update to latest version     |
+| `/course lang zh-TW` | Switch to Traditional Chinese |
+| `/course lang en`  | Switch to English            |
 
 ---
 

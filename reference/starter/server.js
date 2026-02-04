@@ -28,7 +28,8 @@ const server = http.createServer(async (req, res) => {
     return
   }
 
-  let filePath = req.url === "/" ? "/index.html" : req.url
+  const urlPath = req.url.split("?")[0]
+  let filePath = urlPath === "/" ? "/index.html" : urlPath
   filePath = path.join(__dirname, filePath)
 
   const ext = path.extname(filePath)
