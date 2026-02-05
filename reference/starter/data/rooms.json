@@ -1,7 +1,9 @@
 {
   "cave-entrance": {
     "name": "Cave Entrance",
+    "name_zh": "洞穴入口",
     "description": "You stand at the entrance of a dark cave. Faint light filters in from outside.",
+    "description_zh": "你站在一個黑暗洞穴的入口。微弱的光線從外面滲透進來。",
     "exits": {}
   }
 }

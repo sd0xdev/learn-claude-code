@@ -58,7 +58,7 @@ function processCommand(input) {
   // TODO: Add command handling here
   // Commands to implement: help, look, go, take, inventory, attack, talk, leave, say
 
-  print("I don't understand that.", "error")
+  print(t(S.dontUnderstand), "error")
 }
 
 // ============ EVENT HANDLERS ============
@@ -114,12 +114,12 @@ async function init() {
 
   updateUI()
 
-  print("Welcome to Dungeons & Agents!")
-  print("Type 'help' for available commands.")
+  print(t(S.welcome))
+  print(t(S.typeHelp))
   print("")
   const room = rooms[currentRoom]
   if (room) {
-    print(room.description)
+    print(t(room, "description"))
   }
 }
 

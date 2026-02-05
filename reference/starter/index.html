@@ -28,7 +28,7 @@
       <!-- Left Sidebar: Status Panel -->
       <aside class="status-panel pixel-box">
         <div class="panel-section">
-          <h2 class="panel-title">STATUS</h2>
+          <h2 class="panel-title">狀態</h2>
           <div class="hp-display">
             <span class="hp-label">HP</span>
             <div class="hp-bar" id="hp-bar"></div>
@@ -37,48 +37,48 @@
         </div>
 
         <div class="panel-section">
-          <h3 class="panel-subtitle">LOCATION</h3>
-          <p class="location-name" id="location-name">Cave Entrance</p>
+          <h3 class="panel-subtitle">位置</h3>
+          <p class="location-name" id="location-name">洞穴入口</p>
           <div class="map-container">
             <div class="pixel-map" id="pixel-map"></div>
           </div>
           <div class="map-legend">
             <span class="legend-item"
-              ><span class="legend-swatch current"></span> You</span
+              ><span class="legend-swatch current"></span> 你</span
             >
             <span class="legend-item"
-              ><span class="legend-swatch visited"></span> Visited</span
+              ><span class="legend-swatch visited"></span> 已探索</span
             >
             <span class="legend-item"
-              ><span class="legend-swatch unknown"></span> Unknown</span
+              ><span class="legend-swatch unknown"></span> 未知</span
             >
           </div>
         </div>
 
         <div class="panel-section">
-          <h3 class="panel-subtitle">INVENTORY</h3>
+          <h3 class="panel-subtitle">物品欄</h3>
           <ul class="inventory-list" id="inventory-list">
-            <li class="inventory-empty">Empty</li>
+            <li class="inventory-empty">空的</li>
           </ul>
         </div>
 
         <div class="panel-section">
-          <h3 class="panel-subtitle">ACTIONS</h3>
+          <h3 class="panel-subtitle">行動</h3>
           <div class="button-grid">
             <button class="pixel-btn" data-cmd="look" title="L" disabled>
-              <span class="btn-icon">👁</span> Look
+              <span class="btn-icon">👁</span> 查看
             </button>
             <button class="pixel-btn" data-cmd="inventory" title="I" disabled>
-              <span class="btn-icon">🎒</span> Inv
+              <span class="btn-icon">🎒</span> 背包
             </button>
             <button class="pixel-btn" data-cmd="help" title="H" disabled>
-              <span class="btn-icon">📜</span> Help
+              <span class="btn-icon">📜</span> 說明
             </button>
             <button class="pixel-btn" id="talk-btn" disabled>
-              <span class="btn-icon">💬</span> Talk
+              <span class="btn-icon">💬</span> 交談
             </button>
             <button class="pixel-btn" id="take-btn" disabled>
-              <span class="btn-icon">✋</span> Take
+              <span class="btn-icon">✋</span> 拿取
             </button>
             <button
               class="pixel-btn pixel-btn-combat"
@@ -87,7 +87,7 @@
               id="attack-btn"
               disabled
             >
-              <span class="btn-icon">🗡️</span> Atk
+              <span class="btn-icon">🗡️</span> 攻擊
             </button>
           </div>
         </div>
@@ -113,14 +113,14 @@
 
         <!-- Room Items Display -->
         <div class="items-bar pixel-box" id="items-bar" hidden>
-          <span class="items-title">ITEMS:</span>
+          <span class="items-title">物品：</span>
           <div class="items-list" id="items-list"></div>
         </div>
 
         <!-- Game Output -->
         <div class="output-container pixel-box">
           <div class="output" id="output">
-            <p class="system">Type 'help' for available commands.</p>
+            <p class="system">輸入 'help' 查看可用指令。</p>
             <p class="system">---</p>
           </div>
         </div>
@@ -131,7 +131,7 @@
           <input
             type="text"
             id="command"
-            placeholder="Enter command..."
+            placeholder="輸入指令..."
             autofocus
             autocomplete="off"
             spellcheck="false"
@@ -143,6 +143,7 @@
     <!-- Scanline overlay -->
     <div class="scanlines"></div>
 
+    <script src="strings.js"></script>
     <script src="ui/portraits.js"></script>
     <script src="ui/ui.js"></script>
     <script src="game.js"></script>

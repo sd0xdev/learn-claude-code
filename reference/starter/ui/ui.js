@@ -69,10 +69,10 @@ function updateHpBar() {
 function updateLocation() {
   const room = rooms[currentRoom]
   if (room) {
-    locationName.textContent = room.name
+    locationName.textContent = t(room, "name")
     visitedRooms.add(currentRoom)
   } else {
-    locationName.textContent = "Unknown"
+    locationName.textContent = t(S.unknownLocation)
   }
 }
 
@@ -95,7 +95,7 @@ function updateInventory() {
   if (inventory.length === 0) {
     const li = document.createElement("li")
     li.className = "inventory-empty"
-    li.textContent = "Empty"
+    li.textContent = t(S.emptyInventory)
     inventoryList.appendChild(li)
   } else {
     inventory.forEach((id) => {
@@ -105,7 +105,7 @@ function updateInventory() {
       icon.className = "item-icon"
       icon.textContent = getItemIcon(item.name)
       li.appendChild(icon)
-      li.appendChild(document.createTextNode(item.name))
+      li.appendChild(document.createTextNode(t(item, "name")))
       inventoryList.appendChild(li)
     })
   }
@@ -175,8 +175,8 @@ function showPortrait(character) {
     portraitArt.style.boxShadow = 'none'
     portraitArt.textContent = '?'
   }
-  portraitName.textContent = character.name
-  portraitTrait.textContent = character.personality
+  portraitName.textContent = t(character, "name")
+  portraitTrait.textContent = t(character, "personality")
   portraitContainer.hidden = false
 }
 

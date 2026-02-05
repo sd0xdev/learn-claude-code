@@ -729,3 +729,41 @@ body {
     border-right: none;
   }
 }
+
+/* CJK font support for Traditional Chinese */
+:lang(zh-TW) {
+  --font-cjk: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans CJK TC', sans-serif;
+  --text-lg: 18px;
+  --text-md: 14px;
+  --text-sm: 12px;
+  --text-icon: 16px;
+}
+
+:lang(zh-TW) body {
+  font-family: var(--font-cjk);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.8;
+}
+
+:lang(zh-TW) .pixel-btn,
+:lang(zh-TW) #command {
+  font-family: var(--font-cjk);
+}
+
+:lang(zh-TW) .pixel-btn {
+  font-size: var(--text-sm);
+  padding: 8px 6px;
+}
+
+:lang(zh-TW) .output p {
+  line-height: 2;
+}
+
+:lang(zh-TW) .entity-label {
+  font-size: 10px;
+}
+
+:lang(zh-TW) .game-title {
+  font-family: var(--font-main);
+}
