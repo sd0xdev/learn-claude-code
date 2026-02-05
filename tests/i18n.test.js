@@ -6,21 +6,30 @@ import { detectLocale, createT, createTemplates, S, dirNames } from "../referenc
 // ============ detectLocale ============
 
 describe("detectLocale", () => {
-  it("defaults to 'en' when no query param", () => {
-    expect(detectLocale("")).toBe("en")
+  it("defaults to 'zh-TW' when no query param", () => {
+    expect(detectLocale("")).toBe("zh-TW")
   })
 
-  it("defaults to 'en' when search is undefined-like", () => {
-    expect(detectLocale("?foo=bar")).toBe("en")
+  it("defaults to 'zh-TW' when search is undefined-like", () => {
+    expect(detectLocale("?foo=bar")).toBe("zh-TW")
   })
 
-  it("returns 'zh-TW' when ?lang=zh-TW", () => {
+  it("returns 'en' when ?lang=en", () => {
+    expect(detectLocale("?lang=en")).toBe("en")
+  })
+
+  it("returns 'en' case-insensitively", () => {
+    expect(detectLocale("?lang=EN")).toBe("en")
+    expect(detectLocale("?lang=en-US")).toBe("en")
+  })
+
+  it("returns 'zh-TW' when ?lang=zh-TW explicitly", () => {
     expect(detectLocale("?lang=zh-TW")).toBe("zh-TW")
   })
 
-  it("returns 'en' for invalid locale values", () => {
-    expect(detectLocale("?lang=fr")).toBe("en")
-    expect(detectLocale("?lang=zh-CN")).toBe("en")
+  it("returns 'zh-TW' for other locale values", () => {
+    expect(detectLocale("?lang=fr")).toBe("zh-TW")
+    expect(detectLocale("?lang=zh-CN")).toBe("zh-TW")
   })
 })
 
@@ -48,7 +57,7 @@ describe("t() with zh-TW locale", () => {
   const t = createT("zh-TW")
 
   it("returns zh-TW from locale map", () => {
-    expect(t(S.welcome)).toBe("歡迎來到 Dungeons & Agents！")
+    expect(t(S.welcome)).toBe("歡迎來到地下城與代理！")
   })
 
   it("returns _zh field from data object", () => {

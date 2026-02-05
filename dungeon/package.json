@@ -1,7 +1,7 @@
 {
   "name": "dungeons-and-agents",
   "version": "1.0.0",
-  "description": "A browser-based text adventure game",
+  "description": "地下城與代理 — 瀏覽器文字冒險遊戲",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

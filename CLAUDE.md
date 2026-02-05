@@ -56,7 +56,7 @@ When adding or modifying enemies:
 
 ## Internationalization (i18n)
 
-The game supports English (`en`) and Traditional Chinese (`zh-TW`). Locale is detected via URL query parameter `?lang=zh-TW`.
+The game supports Traditional Chinese (`zh-TW`, default) and English (`en`). Use `?lang=en` to switch to English.
 
 ### Architecture
 
@@ -84,13 +84,13 @@ Locale-aware string formatters for sentences with parameters:
 
 ### Course locale
 
-- Course language is stored in `dungeon/course-progress.json` as `"locale": "en"` or `"locale": "zh-TW"`
+- Course language is stored in `dungeon/course-progress.json` as `"locale": "zh-TW"` (default) or `"locale": "en"`
 - Lesson translations are in `learn-claude/zh-TW/`
-- Set via `/course lang zh-TW`
+- Switch to English via `/course lang en`
 
 ### Testing
 
-Run `npm test` to verify i18n infrastructure:
+Run `pnpm test` to verify i18n infrastructure:
 - `t()` function behavior for both locales
 - `T.*` template functions output
 - Data file integrity (all `_zh` fields present)

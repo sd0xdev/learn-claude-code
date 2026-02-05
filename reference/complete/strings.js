@@ -7,7 +7,8 @@ function detectLocale(search) {
   if (search === undefined) {
     search = typeof window !== "undefined" ? window.location.search : ""
   }
-  return new URLSearchParams(search).get("lang") === "zh-TW" ? "zh-TW" : "en"
+  const lang = (new URLSearchParams(search).get("lang") || "").toLowerCase()
+  return lang === "en" || lang.startsWith("en-") ? "en" : "zh-TW"
 }
 
 const locale = detectLocale()
@@ -42,7 +43,7 @@ const t = createT(locale)
 
 const S = {
   // Welcome / init
-  welcome: { en: "Welcome to Dungeons & Agents!", "zh-TW": "歡迎來到 Dungeons & Agents！" },
+  welcome: { en: "Welcome to Dungeons & Agents!", "zh-TW": "歡迎來到地下城與代理！" },
   typeHelp: { en: "Type 'help' for available commands.", "zh-TW": "輸入 'help' 查看可用指令。" },
 
   // Help
@@ -173,7 +174,9 @@ const T = createTemplates(locale, t)
 // ============ HTML LOCALIZATION ============
 
 function localizeHTML() {
-  if (typeof document === "undefined" || locale === "en") return
+  if (typeof document === "undefined") return
+  // HTML defaults to zh-TW; only run localization if locale is "en"
+  if (locale !== "en") return
 
   // Panel titles
   const panelTitle = document.querySelector(".panel-title")
@@ -242,6 +245,12 @@ function localizeHTML() {
   // Inventory empty text
   const emptyItem = document.querySelector(".inventory-empty")
   if (emptyItem) emptyItem.textContent = t(S.emptyInventory)
+
+  // Location name (default room)
+  const locationNameEl = document.getElementById("location-name")
+  if (locationNameEl && locationNameEl.textContent === "洞穴入口") {
+    locationNameEl.textContent = "Cave Entrance"
+  }
 }
 
 if (typeof document !== "undefined") {

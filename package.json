@@ -1,5 +1,7 @@
 {
   "private": true,
+  "name": "learn-claude-code",
+  "description": "地下城與代理 — 透過實作文字冒險遊戲學習 Claude Code",
   "scripts": {
     "start": "node reference/complete/server.js",
     "dev": "node dungeon/server.js",

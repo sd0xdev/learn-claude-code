@@ -1,63 +1,63 @@
-English | [繁體中文](README.zh-TW.md)
+[English](README.en.md) | 繁體中文
 
-# Learn Claude Code
+# 學習 Claude Code
 
-An interactive course for learning Claude Code in Claude Code.
+一門在 Claude Code 中學習 Claude Code 的互動式課程。
 
-Claude teaches you conversationally, walking you through concepts and hands-on exercises step by step.
+Claude 以對話方式教學，逐步引導你學習概念並完成實作練習。
 
-## Quick Start
+## 快速開始
 
-1. First, install [Claude Code](https://docs.anthropic.com/en/docs/claude-code) if you haven't already:
+1. 首先，安裝 [Claude Code](https://docs.anthropic.com/en/docs/claude-code)（如果尚未安裝）：
 
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-2. Clone this repository:
+2. 複製此儲存庫：
 
 ```bash
 git clone https://github.com/delbaoliveira/learn-claude-code
 cd learn-claude-code
 ```
 
-3. Start a session with Claude:
+3. 啟動 Claude 對話：
 
 ```bash
 claude
 ```
 
-4. Then type `/course` to begin.
+4. 輸入 `/course` 開始課程。
 
 ---
 
-## What You'll Build
+## 你將打造的專案
 
-Throughout the course, you'll build **Dungeons & Agents** — a text adventure game that runs in your browser.
+在整個課程中，你將打造**地下城與代理**（Dungeons & Agents）—— 一款在瀏覽器中執行的文字冒險遊戲。
 
 ```
 ╔═══════════════════════════════════════════╗
-║            DUNGEONS  &  AGENTS            ║
+║             地下城與代理                   ║
 ╚═══════════════════════════════════════════╝
 
-You stand at the entrance of a dark cave.
-A cold wind blows from within.
+你站在一個黑暗洞穴的入口。
+一陣冷風從深處吹來。
 
 > go north
 ```
 
-Each lesson teaches a Claude Code concept, then has you apply it to the game. By lesson 10, you'll have a complete game with rooms, items, combat, and a foundational understanding of Claude Code.
+每堂課教授一個 Claude Code 概念，然後讓你將其應用到遊戲中。到第 10 課結束時，你將擁有一個完整的遊戲，包含房間、物品、戰鬥系統，以及對 Claude Code 的扎實理解。
 
-Start the game server:
+啟動遊戲伺服器：
 
 ```bash
 pnpm start
 ```
 
-- English: http://localhost:3000
-- Traditional Chinese: http://localhost:3000?lang=zh-TW
+- 繁體中文版（預設）：http://localhost:3000
+- English：http://localhost:3000?lang=en
 
-When building step-by-step during the course, use the student workspace:
+課程中逐步建構時使用學生工作區：
 
 ```bash
 pnpm run dev
@@ -65,78 +65,79 @@ pnpm run dev
 
 ---
 
-## Course Structure
+## 課程結構
 
-**Introduction**
+**簡介**
 
-0. Welcome
+0. 歡迎
 
-**Part 1: Getting Started**
+**第一部分：入門**
 
-1. Your First Session
-2. CLI Navigation
-3. Managing Context
-4. Modes
+1. 你的第一次 Session
+2. CLI 導航
+3. 管理上下文
+4. 模式
 
-**Part 2: Project Context**
+**第二部分：專案上下文**
 
 5. CLAUDE.md
-6. Writing Rules
-7. Prompting
-8. Creating Skills
+6. 撰寫規則
+7. 提示技巧
+8. 建立技能
 
-**Part 3: Agents**
+**第三部分：代理**
 
-9. Subagents
-10. Application Agents
+9. 子代理
+10. 應用程式代理
 
 ---
 
-## Directory Structure
+## 目錄結構
 
 ```
 learn-claude-code/
-├── learn-claude/               # 11 lessons
-├── dungeon/                    # Your workspace
-│   ├── server.js               # Game server
-│   ├── index.html              # Terminal-styled UI
-│   ├── game.js                 # Game engine (you build this!)
-│   ├── data/                   # Game data (rooms, items, enemies)
-│   └── course-progress.json    # Your saved progress
+├── learn-claude/               # 11 堂課程
+│   └── zh-TW/                  # 繁體中文版課程
+├── dungeon/                    # 你的工作區
+│   ├── server.js               # 遊戲伺服器
+│   ├── index.html              # 終端風格 UI
+│   ├── game.js                 # 遊戲引擎（由你來打造！）
+│   ├── data/                   # 遊戲資料（房間、物品、敵人）
+│   └── course-progress.json    # 你的學習進度
 ├── reference/
-│   ├── starter/                # Starting state (for /course reset)
-│   └── complete/               # Complete reference implementation
+│   ├── starter/                # 初始狀態（用於 /course reset）
+│   └── complete/               # 完整參考實作
 ├── .claude/
 │   └── skills/
-│       ├── course/             # Interactive course runner
-│       └── dungeon/            # Game-building skills (lesson 09)
+│       ├── course/             # 互動式課程執行器
+│       └── dungeon/            # 遊戲建構技能（第 09 課）
 └── README.md
 ```
 
-## Course Commands
+## 課程指令
 
-| Command            | Description                  |
-| ------------------ | ---------------------------- |
-| `/course`          | Show dashboard with progress |
-| `/course next`     | Continue to next lesson      |
-| `/course progress` | View detailed stats          |
-| `/course exit`     | Pause and save position      |
-| `/course reset`    | Start over                   |
-| `/course update`   | Update to latest version     |
-| `/course lang zh-TW` | Switch to Traditional Chinese |
-| `/course lang en`  | Switch to English            |
+| 指令               | 說明                       |
+| ------------------ | -------------------------- |
+| `/course`          | 顯示進度儀表板             |
+| `/course next`     | 繼續下一堂課               |
+| `/course progress` | 查看詳細統計               |
+| `/course exit`     | 暫停並儲存進度             |
+| `/course reset`    | 重新開始                   |
+| `/course update`   | 更新至最新版本             |
+| `/course lang zh-TW` | 設定為繁體中文           |
+| `/course lang en`  | 設定為英文                 |
 
 ---
 
-## For Contributors
+## 給貢獻者
 
-### Review a lesson against official docs
+### 根據官方文件審查課程
 
 ```
 /review-lesson 03
 ```
 
-### Generate a new lesson
+### 產生新課程
 
 ```
 /lesson "topic name"

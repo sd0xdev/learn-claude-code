@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dungeons & Agents</title>
+    <title>地下城與代理 — Dungeons & Agents</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,7 +29,7 @@
       <aside class="status-panel pixel-box">
         <!-- Status Section -->
         <div class="panel-section">
-          <h2 class="panel-title">STATUS</h2>
+          <h2 class="panel-title">狀態</h2>
           <!-- HP Display -->
           <div class="hp-display">
             <span class="hp-label">HP</span>
@@ -40,54 +40,54 @@
 
         <!-- Location Section -->
         <div class="panel-section">
-          <h3 class="panel-subtitle">LOCATION</h3>
+          <h3 class="panel-subtitle">位置</h3>
           <!-- Location Name -->
           <!-- Mini Map -->
-          <p class="location-name" id="location-name">Cave Entrance</p>
+          <p class="location-name" id="location-name">洞穴入口</p>
           <div class="map-container">
             <div class="pixel-map" id="pixel-map"></div>
           </div>
           <div class="map-legend">
             <span class="legend-item"
-              ><span class="legend-swatch current"></span> You</span
+              ><span class="legend-swatch current"></span> 你</span
             >
             <span class="legend-item"
-              ><span class="legend-swatch visited"></span> Visited</span
+              ><span class="legend-swatch visited"></span> 已探索</span
             >
             <span class="legend-item"
-              ><span class="legend-swatch unknown"></span> Unknown</span
+              ><span class="legend-swatch unknown"></span> 未知</span
             >
           </div>
         </div>
 
         <!-- Inventory Section -->
         <div class="panel-section">
-          <h3 class="panel-subtitle">INVENTORY</h3>
+          <h3 class="panel-subtitle">物品欄</h3>
           <!-- Inventory List -->
           <ul class="inventory-list" id="inventory-list">
-            <li class="inventory-empty">Empty</li>
+            <li class="inventory-empty">空的</li>
           </ul>
         </div>
 
         <!-- Actions Section -->
         <div class="panel-section">
-          <h3 class="panel-subtitle">ACTIONS</h3>
+          <h3 class="panel-subtitle">行動</h3>
           <!-- Action Buttons Grid -->
           <div class="button-grid">
             <button class="pixel-btn" data-cmd="look" title="L" disabled>
-              <span class="btn-icon">👁</span> Look
+              <span class="btn-icon">👁</span> 查看
             </button>
             <button class="pixel-btn" data-cmd="inventory" title="I" disabled>
-              <span class="btn-icon">🎒</span> Inv
+              <span class="btn-icon">🎒</span> 背包
             </button>
             <button class="pixel-btn" data-cmd="help" title="H" disabled>
-              <span class="btn-icon">📜</span> Help
+              <span class="btn-icon">📜</span> 說明
             </button>
             <button class="pixel-btn" id="take-btn" disabled>
-              <span class="btn-icon">✋</span> Take
+              <span class="btn-icon">✋</span> 拿取
             </button>
             <button class="pixel-btn" id="talk-btn" disabled>
-              <span class="btn-icon">💬</span> Talk
+              <span class="btn-icon">💬</span> 交談
             </button>
             <button
               class="pixel-btn pixel-btn-combat"
@@ -96,7 +96,7 @@
               id="attack-btn"
               disabled
             >
-              <span class="btn-icon">🗡️</span> Atk
+              <span class="btn-icon">🗡️</span> 攻擊
             </button>
           </div>
         </div>
@@ -133,14 +133,14 @@
 
         <!-- Items Bar -->
         <div class="items-bar pixel-box" id="items-bar" hidden>
-          <span class="items-title">ITEMS</span>
+          <span class="items-title">物品：</span>
           <div class="items-list" id="items-list"></div>
         </div>
 
         <!-- Terminal Output -->
         <div class="output-container pixel-box">
           <div class="output" id="output">
-            <p class="system">Type 'help' for available commands.</p>
+            <p class="system">輸入 'help' 查看可用指令。</p>
             <p class="system">---</p>
           </div>
         </div>
@@ -152,7 +152,7 @@
           <input
             type="text"
             id="command"
-            placeholder="Enter command..."
+            placeholder="輸入指令..."
             autofocus
             autocomplete="off"
             spellcheck="false"

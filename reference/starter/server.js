@@ -56,6 +56,7 @@ fs.watch(__dirname, { recursive: true }, (event, filename) => {
 })
 
 server.listen(PORT, () => {
-  console.log(`\n  Dungeons & Agents running at http://localhost:${PORT}`)
-  console.log(`  Live reload enabled\n`)
+  console.log(`\n  地下城與代理 running at http://localhost:${PORT}`)
+  console.log(`  英文版 http://localhost:${PORT}?lang=en`)
+  console.log(`  即時重新載入已啟用\n`)
 })
