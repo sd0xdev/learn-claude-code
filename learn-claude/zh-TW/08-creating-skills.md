@@ -8,11 +8,11 @@
 
 沒有技能的話，你得重複自己：
 
-> "Add a wizard. Ask me for personality, knowledge, location, greeting. Save to data/characters.json."
+> 「新增一個巫師。詢問我個性、知識、位置、招呼語。存到 data/characters.json。」
 
 有了技能，你只需要說：
 
-> "Add a wizard to the treasure room."
+> 「在寶藏室新增一個巫師。」
 
 Claude 會辨識出這個任務符合你的 `add-character` 技能，載入它，然後照著你的指令執行。
 
@@ -29,20 +29,20 @@ Claude 會辨識出這個任務符合你的 `add-character` 技能，載入它�
 ```markdown
 ---
 name: add-character
-description: Add an NPC to the dungeon game
-argument-hint: "<character-name>"
+description: 為地下城遊戲新增 NPC
+argument-hint: "<角色名稱>"
 ---
 
-Create a new NPC named $ARGUMENTS for the dungeon game.
+為地下城遊戲建立一個名為 $ARGUMENTS 的新 NPC。
 
-Ask the user for:
+詢問使用者：
 
-- Personality (2-3 traits)
-- Knowledge (what do they know about the dungeon?)
-- Location (which room are they in?)
-- Greeting (what they say when you first talk to them)
+- 個性（2-3 個特質）
+- 知識（他們對地下城了解什麼？）
+- 位置（他們在哪個房間？）
+- 招呼語（第一次對話時說什麼）
 
-Save to dungeon/data/characters.json.
+存到 dungeon/data/characters.json。
 ```
 
 ## 技能的存放位置
@@ -54,15 +54,15 @@ Save to dungeon/data/characters.json.
 
 1. 請 Claude 建立技能：
 
-   > Create a Claude Code skill at .claude/skills/add-character/SKILL.md that adds NPCs to the dungeon game. It should ask for personality, knowledge, location, and greeting, then save to data/characters.json.
+   > 在 .claude/skills/add-character/SKILL.md 建立一個 Claude Code 技能，用來為地下城遊戲新增 NPC。它應該詢問個性、知識、位置和招呼語，然後存到 data/characters.json。
    >
-   > - It should also create a pixel art for the character in ui/portraits.js.
-   > - The character's name, portrait, and description should be displayed in the Portrait Display box on room entry if the character is present.
+   > - 它也應該在 ui/portraits.js 為角色建立像素圖。
+   > - 進入房間時，如果角色在場，應該在 Portrait Display 區塊顯示角色名稱、肖像和描述。
 
 2. 測試自動呼叫——只需描述你想要的：
 
-   > Add a wizard character to the secret garden. They should be wise and guide the player to the treasure room.
+   > 在秘密花園新增一個巫師角色。他應該很有智慧，引導玩家前往寶藏室。
 
 3. 在繼續之前，讓我們啟用對話按鈕，這樣就能和角色互動：
 
-   > Enable the Talk Button in the Actions Section when a character is in the room.
+   > 當房間有角色時，啟用 Actions Section 中的 Talk Button。

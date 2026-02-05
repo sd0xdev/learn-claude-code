@@ -9,38 +9,38 @@
 在你的 `CLAUDE.md` 檔案中：
 
 ```markdown
-## Rules
+## 規則
 
-- Always use pnpm, never npm
-- Don't modify files in /legacy
-- Run tests before committing
+- 永遠使用 pnpm，不要用 npm
+- 不要修改 /legacy 中的檔案
+- 提交前先跑測試
 ```
 
 ## 規則類型
 
-**風格：**"Use named exports, not default exports"
+**風格：**「使用具名匯出，不用預設匯出」
 
-**邊界：**"Don't modify anything in /packages/core"
+**邊界：**「不要修改 /packages/core 中的任何東西」
 
-**流程：**"Run `pnpm test` after modifying test files"
+**流程：**「修改測試檔案後執行 `pnpm test`」
 
-**安全：**"Never commit API keys or secrets"
+**安全：**「絕不提交 API 金鑰或密鑰」
 
 ## 撰寫好的規則
 
-| 模糊               | 具體                                       |
-| ----------------- | ------------------------------------------ |
-| "Write good code" | "Add JSDoc comments to exported functions" |
-| "Be careful"      | "Ask before deleting files"                |
+| 模糊             | 具體                                 |
+| --------------- | ------------------------------------ |
+| 「寫好的程式碼」   | 「為匯出的函式加上 JSDoc 註解」        |
+| 「小心一點」      | 「刪除檔案前先詢問」                   |
 
 ## 動手試試
 
 1. 請 Claude 新增規則：
 
-   > Add a Rules section to dungeon/CLAUDE.md with these game rules: weapon damage 1-10, enemy HP 5-30, room descriptions 2-3 atmospheric sentences, every room must have at least one exit, no one-way doors.
+   > 在 dungeon/CLAUDE.md 新增一個 Rules 區段，包含這些遊戲規則：武器傷害 1-10，敵人 HP 5-30，房間描述 2-3 句有氛圍的句子，每個房間至少要有一個出口，不能有單向門。
 
 2. 試著打破規則：
 
-   > Add a legendary sword that does 50 damage
+   > 新增一把傳說之劍，傷害 50 點
 
 3. Claude 應該會拒絕或調整以遵守你的規則。

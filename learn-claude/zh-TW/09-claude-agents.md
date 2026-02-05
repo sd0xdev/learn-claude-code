@@ -48,14 +48,14 @@
 3. 選擇 **Generate with Claude** 並描述代理：
 
    ```
-   A character creator that makes NPCs for a dungeon game. It should read /skills/add-character/skill.md to understand the character creation process, read the rooms to understand the world, design characters with personality traits, and save them to data/characters.json.
+   一個為地下城遊戲建立 NPC 的角色創建器。它應該讀取 /skills/add-character/skill.md 來了解角色建立流程，讀取房間來了解世界，設計有個性特質的角色，並存到 data/characters.json。
    ```
 
 4. 保留預設的工具和模型，選擇一個顏色，然後儲存。
 
 5. 在背景中測試：
 
-   > Create two new characters: a Dwarf NPC for the treasure-room and a Elf for the underground-lake. Run this in the background.
+   > 建立兩個新角色：寶藏室的矮人 NPC 和地下湖的精靈。在背景執行。
 
 6. 在它執行時，檢查 `/tasks` 來查看背景工作。
 

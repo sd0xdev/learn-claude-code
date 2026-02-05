@@ -9,17 +9,17 @@
 ## 範例：
 
 ```markdown
-# My Project
+# 我的專案
 
-## Overview
+## 概述
 
-React app with TypeScript and Tailwind.
+使用 TypeScript 和 Tailwind 的 React 應用程式。
 
-## Conventions
+## 慣例
 
-- Functional components with hooks
-- Use named exports, not default exports
-- Don't modify files in /legacy
+- 使用 hooks 的函式元件
+- 使用具名匯出，不用預設匯出
+- 不要修改 /legacy 中的檔案
 ```
 
 ## 為什麼這很重要
@@ -34,8 +34,8 @@ React app with TypeScript and Tailwind.
 
 1. 為地下城遊戲建立一個 CLAUDE.md：
 
-   > Create a CLAUDE.md in dungeon/ documenting the game structure, how rooms.json works, and that room descriptions should be 2-3 atmospheric sentences. Also document that whenever rooms are added or modified, the mapLayout grid in ui/ui.js must be updated to keep the mini map synchronized with actual room connections.
+   > 在 dungeon/ 建立一個 CLAUDE.md，記錄遊戲結構、rooms.json 的運作方式，以及房間描述應該是 2-3 句有氛圍的句子。同時記錄每當新增或修改房間時，必須更新 ui/ui.js 中的 mapLayout 網格，以保持迷你地圖與實際房間連接同步。
 
-2. 測試看看：問 "What's the format for adding a new room?"——Claude 應該不需要你解釋就能回答。
+2. 測試看看：問「新增房間的格式是什麼？」——Claude 應該不需要你解釋就能回答。
 
 現在你已經有了 CLAUDE.md，下一課將教你如何撰寫 Claude 確實會遵循的規則。

@@ -21,27 +21,27 @@
 
 1. 請 Claude 建立 `.env` 檔案：
 
-   > Create a `.env` file in the dungeon directory with my API key. The file should contain:
+   > 在 dungeon 目錄建立一個 `.env` 檔案，包含我的 API 金鑰。檔案應該包含：
    >
    > ```
    > ANTHROPIC_API_KEY=sk-ant-xxxxx
    > ```
    >
-   > Add the .env file to .gitignore.
+   > 把 .env 檔案加到 .gitignore。
 
 2. 從 https://console.anthropic.com/settings/keys 取得你的 API 金鑰，然後將 `sk-ant-xxxxx` 替換為你的實際 API 金鑰。
 
 3. 在計畫模式中，請 Claude 加入 API 整合：
 
-   > Add Claude API integration so NPCs respond dynamically:
+   > 加入 Claude API 整合，讓 NPC 能動態回應：
    >
-   > - Install the Anthropic SDK and dotenv
-   > - Create a POST /api/talk endpoint in server.js
-   > - Use ANTHROPIC_API_KEY from environment
-   > - It should take { character, message } and return an AI response
-   > - The character's personality and knowledge should shape the response
-   > - When in dialogue mode, the player types messages directly (no prefix needed)
-   > - Typing "leave" or moving to another room exits dialogue mode
+   > - 安裝 Anthropic SDK 和 dotenv
+   > - 在 server.js 建立 POST /api/talk 端點
+   > - 從環境變數使用 ANTHROPIC_API_KEY
+   > - 它應該接收 { character, message } 並回傳 AI 回應
+   > - 角色的個性和知識應該影響回應
+   > - 在對話模式中，玩家直接輸入訊息（不需要前綴）
+   > - 輸入 "leave" 或移動到其他房間會退出對話模式
 
 4. 重新啟動伺服器：
 
@@ -52,11 +52,11 @@
 5. 在遊戲中測試（使用方向鍵或輸入指令）：
 
    ```
-   ↑ (or go up)
-   ↑ (or go up)
+   ↑（或 go up）
+   ↑（或 go up）
    talk
-   what do you know about the goblin?
-   tell me about yourself
+   你知道哥布林的事嗎？
+   跟我說說你自己
    leave
    ```
 

@@ -30,17 +30,17 @@
 
 2. 請 Claude 擴展房間系統：
 
-   > Expand the dungeon game with more rooms. The cave-entrance already exists in data/rooms.json. Add 4 more connected rooms:
+   > 擴展地下城遊戲，新增更多房間。cave-entrance 已經存在於 data/rooms.json。新增 4 個相連的房間：
    >
-   > - "narrow-tunnel" (up from entrance) — cramped passage, exits: down, right, up, left
-   > - "treasure-room" (right of tunnel) — glittering chamber with gold coins, exits: left
-   > - "underground-lake" (left of tunnel) — vast cavern with dark water, exits: right, left
-   > - "secret-garden" (up from tunnel) — impossible flowers blooming underground, exits: down
+   > - "narrow-tunnel"（入口往上）— 狹窄通道，出口：下、右、上、左
+   > - "treasure-room"（通道往右）— 閃閃發光的密室，有金幣，出口：左
+   > - "underground-lake"（通道往左）— 廣闘洞窟，有黑暗的水，出口：右、左
+   > - "secret-garden"（通道往上）— 地底不可思議的花園，出口：下
    >
-   > Update cave-entrance to have an exit up to narrow-tunnel.
-   > Update game.js so 'look' shows the current room description and exits, 'go [direction]' or arrow keys (ArrowUp/Down/Left/Right) to move between rooms.
-   > Update the mapLayout grid in ui/ui.js to show all rooms in their correct positions.
-   > Make sure the map and room positions match.
+   > 更新 cave-entrance，新增往上到 narrow-tunnel 的出口。
+   > 更新 game.js，讓 'look' 顯示目前房間的描述和出口，'go [方向]' 或方向鍵 (ArrowUp/Down/Left/Right) 可以移動。
+   > 更新 ui/ui.js 中的 mapLayout 網格，顯示所有房間的正確位置。
+   > 確保地圖和房間位置相符。
 
 3. 測試遊戲：用 `go up`、方向鍵、`look` 來探索。
 

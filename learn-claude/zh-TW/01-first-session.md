@@ -10,16 +10,16 @@ Claude 會自動讀取你的專案結構。
 
 ## 試試看
 
-讓我們對 Dungeons & Agents 進行你的第一次修改。
+讓我們對地下城與代理進行你的第一次修改。
 
 1. 請 Claude 新增第一批指令：
 
-   > Look at the dungeon game in dungeon/. Add a basic command system to game.js:
+   > 看一下 dungeon/ 裡的地下城遊戲。在 game.js 中加入基本指令系統：
    >
-   > - 'help' shows available commands
-   > - 'look' says "You are in a dark cave. Exits: up"
-   > - Unknown commands show "I don't understand that"
-   > - Enable the "Look" and "Take" buttons in the UI.
+   > - 'help' 顯示可用指令
+   > - 'look' 顯示「你在一個黑暗的洞穴中。出口：上」
+   > - 未知指令顯示「我不明白那個指令。」
+   > - 啟用 UI 中的「查看」和「拿取」按鈕。
 
 2. 接受 Claude 的變更。
 

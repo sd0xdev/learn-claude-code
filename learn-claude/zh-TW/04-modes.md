@@ -18,11 +18,11 @@ Claude Code 有三種模式，適用於不同的情境：
 
 2. 請 Claude 規劃物品欄系統：
 
-   > Plan an inventory system for the dungeon game. Players can pick up items with 'take [item]', view inventory with 'inventory'. Items are stored in data/items.json.
+   > 為地下城遊戲規劃一個物品欄系統。玩家可以用 'take [物品]' 撿起物品，用 'inventory' 查看物品欄。物品存在 data/items.json。
    >
-   > - Create pixel art for the items in the inventory.
-   > - Make sure the Inventory List (in Inventory Section) and Take Button (in Actions Section) are working correctly. The Take Button should be enabled when items are present in the current room.
-   > - Add a box at the top of the dialogue to display the items available in the current room.
+   > - 為物品欄中的物品建立像素圖。
+   > - 確保 Inventory List（在 Inventory Section）和 Take Button（在 Actions Section）正常運作。當房間有物品時，Take Button 應該啟用。
+   > - 在對話框上方新增一個區塊，顯示目前房間可用的物品。
 
 3. 檢閱 Claude 的規劃並核准。
 

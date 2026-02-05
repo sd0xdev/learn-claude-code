@@ -19,7 +19,10 @@ npm install -g @anthropic-ai/claude-code
 ```bash
 git clone https://github.com/delbaoliveira/learn-claude-code
 cd learn-claude-code
+pnpm install
 ```
+
+> **注意**：`pnpm install` 會自動從 `reference/starter/` 初始化 `dungeon/` 工作區。
 
 3. 啟動 Claude 對話：
 
@@ -98,7 +101,7 @@ pnpm run dev
 learn-claude-code/
 ├── learn-claude/               # 11 堂課程
 │   └── zh-TW/                  # 繁體中文版課程
-├── dungeon/                    # 你的工作區
+├── dungeon/                    # 你的工作區（自動產生，不追蹤於 git）
 │   ├── server.js               # 遊戲伺服器
 │   ├── index.html              # 終端風格 UI
 │   ├── game.js                 # 遊戲引擎（由你來打造！）

@@ -19,7 +19,10 @@ npm install -g @anthropic-ai/claude-code
 ```bash
 git clone https://github.com/delbaoliveira/learn-claude-code
 cd learn-claude-code
+pnpm install
 ```
+
+> **Note**: `pnpm install` will automatically initialize the `dungeon/` workspace from `reference/starter/`.
 
 3. Start a session with Claude:
 
@@ -97,7 +100,7 @@ pnpm run dev
 ```
 learn-claude-code/
 ├── learn-claude/               # 11 lessons
-├── dungeon/                    # Your workspace
+├── dungeon/                    # Your workspace (auto-generated, not tracked in git)
 │   ├── server.js               # Game server
 │   ├── index.html              # Terminal-styled UI
 │   ├── game.js                 # Game engine (you build this!)
